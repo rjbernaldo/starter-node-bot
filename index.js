@@ -22,6 +22,13 @@ controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
 })
 
+controller.hears(['kissing countdown'], ['direct_mention'], function (bot, message) {
+  var arrival = new Date('June 10 2016').getTime();
+  var now = new Date().getTime();
+  var daysLeft = Math.floor((arrival - now) / (1000 * 60 * 60 * 24));
+  bot.reply(message, daysLeft + ' days left until it\'s kissing time for Taco and Pretzel');
+})
+
 controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
